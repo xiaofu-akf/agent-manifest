@@ -1,0 +1,18 @@
+{
+  "apiVersion": "openconductor.dev/v1alpha1",
+  "kind": "Template",
+  "metadata": { "id": "venture-pitch-sample", "name": "Venture pitch sample record" },
+  "spec": {
+    "category": "slides",
+    "tags": ["pitch", "business", "high-density"],
+    "provenance": {
+      "sourceUrl": "https://example.com/upstream-template",
+      "sourceCommit": "a1b2c3d4",
+      "licenseSpdx": "MIT",
+      "licenseEvidenceUrl": "https://example.com/license",
+      "redistributionMode": "reference-only",
+      "assetAuditStatus": "pending",
+      "reviewedAt": "2026-08-20"
+    }
+  }
+}

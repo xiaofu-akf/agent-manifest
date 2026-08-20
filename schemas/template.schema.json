@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openconductor.dev/schemas/v1alpha1/template.json",
+  "title": "OpenConductor Template Manifest",
+  "type": "object",
+  "required": ["apiVersion", "kind", "metadata", "spec"],
+  "properties": {
+    "apiVersion": { "const": "openconductor.dev/v1alpha1" },
+    "kind": { "const": "Template" },
+    "metadata": { "type": "object", "required": ["id", "name"], "properties": { "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,62}$" }, "name": { "type": "string" } } },
+    "spec": { "type": "object", "required": ["category", "tags", "provenance"], "properties": { "category": { "enum": ["slides", "site", "agent"] }, "tags": { "type": "array", "minItems": 1, "items": { "type": "string" } }, "provenance": { "type": "object", "required": ["sourceUrl", "sourceCommit", "licenseSpdx", "licenseEvidenceUrl", "redistributionMode", "assetAuditStatus", "reviewedAt"], "properties": { "sourceUrl": { "type": "string", "format": "uri" }, "sourceCommit": { "type": "string", "minLength": 7 }, "licenseSpdx": { "type": "string", "minLength": 3 }, "licenseEvidenceUrl": { "type": "string", "format": "uri" }, "redistributionMode": { "enum": ["reference-only", "user-fetch", "redistributable"] }, "assetAuditStatus": { "enum": ["pending", "passed", "blocked"] }, "reviewedAt": { "type": "string", "format": "date" } } } } }
+  },
+  "additionalProperties": false
+}

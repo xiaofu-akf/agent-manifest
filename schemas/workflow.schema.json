@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openconductor.dev/schemas/v1alpha1/workflow.json",
+  "title": "OpenConductor Workflow Manifest",
+  "type": "object",
+  "required": ["apiVersion", "kind", "metadata", "spec"],
+  "properties": {
+    "apiVersion": { "const": "openconductor.dev/v1alpha1" },
+    "kind": { "const": "Workflow" },
+    "metadata": { "type": "object", "required": ["id", "name"], "properties": { "id": { "type": "string" }, "name": { "type": "string" } } },
+    "spec": { "type": "object", "required": ["nodes", "edges"], "properties": { "nodes": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["id", "agent"], "properties": { "id": { "type": "string" }, "agent": { "type": "string" } } } }, "edges": { "type": "array", "items": { "type": "object", "required": ["from", "to"], "properties": { "from": { "type": "string" }, "to": { "type": "string" } } } } } }
+  },
+  "additionalProperties": false
+}

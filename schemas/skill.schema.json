@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openconductor.dev/schemas/v1alpha1/skill.json",
+  "title": "OpenConductor Skill Manifest",
+  "type": "object",
+  "required": ["apiVersion", "kind", "metadata", "spec"],
+  "properties": {
+    "apiVersion": { "const": "openconductor.dev/v1alpha1" },
+    "kind": { "const": "Skill" },
+    "metadata": { "type": "object", "required": ["id", "name"], "properties": { "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9.-]{2,80}$" }, "name": { "type": "string" } } },
+    "spec": { "type": "object", "required": ["description", "input", "output", "permissions"], "properties": { "description": { "type": "string", "minLength": 12 }, "input": { "type": "object" }, "output": { "type": "object" }, "permissions": { "type": "object", "required": ["risk", "externalNetwork", "filesystem"], "properties": { "risk": { "enum": ["none", "low", "moderate", "high"] }, "externalNetwork": { "type": "boolean" }, "filesystem": { "type": "boolean" }, "approvalRequired": { "type": "boolean" } } } } }
+  },
+  "additionalProperties": false
+}

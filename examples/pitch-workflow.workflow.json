@@ -1,0 +1,9 @@
+{
+  "apiVersion": "openconductor.dev/v1alpha1",
+  "kind": "Workflow",
+  "metadata": { "id": "pitch-workflow", "name": "Pitch deck workflow" },
+  "spec": {
+    "nodes": [{ "id": "strategy", "agent": "slide-strategist" }, { "id": "review", "agent": "delivery-reviewer" }],
+    "edges": [{ "from": "strategy", "to": "review" }]
+  }
+}
