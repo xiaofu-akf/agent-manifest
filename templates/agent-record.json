@@ -1,0 +1,10 @@
+{
+  "id": "role-id",
+  "category": "analysis|presentation|website|product|engineering|quality|communication",
+  "purpose": "One bounded responsibility that can be evaluated.",
+  "allowed_skills": ["named.skill"],
+  "accepts": ["input-artifact"],
+  "produces": ["output-artifact"],
+  "evaluation": ["observable acceptance criterion"],
+  "notes": "Optional boundary or model constraint."
+}
